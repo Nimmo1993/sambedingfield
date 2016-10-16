@@ -1,3 +1,9 @@
+# Minify Library
+min/
+
+# Apache htaccess
+.htaccess
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
