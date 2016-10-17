@@ -47,13 +47,19 @@ include('includes/head.php');
           <div class="dome" <?php preloadBk('dome.png', true); ?>></div>
           <div class="background" <?php preloadBk('background.jpg'); ?>></div>
           <div class="doughnut">
-            <div class="halfclip">
-              <div class="halfcircle clipped"></div>
-            </div>
-            <div class="halfcircle fixed"></div>
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"  viewBox="0 0 700 700" enable-background="new 0 0 700 700" xml:space="preserve">
+              <g transform="translate(350, 350) rotate(90)">
+                <circle r="344" class="circle-front" />
+              </g>
+            </svg>
           </div>
           <div class="shadow" <?php preloadBk('1_shadow.png', true); ?>></div>
           <div class="illustration" <?php preloadBk('1.png', true); ?>></div>
+          <div class="powerUp">
+            <img <?php preloadImg('2.png', true); ?> alt="Sam Bedingfield Level 2">
+            <img <?php preloadImg('3.png', true); ?> alt="Sam Bedingfield Level 3">
+            <img <?php preloadImg('4.png', true); ?> alt="Sam Bedingfield Level 4">
+          </div>
           <div class="actions">
             <a href="#" class="levelup button">Level Up <svg fill="#ffffff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg></a>
             <p>Click "Level up" to view my progression.</p>

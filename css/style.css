@@ -479,66 +479,20 @@ aside .doughnut {
   position: absolute;
   width: 700px;
   height: 700px;
-  display: none;
-  -webkit-animation: fadeOut .5s .75s forwards;
-  -moz-animation: fadeOut .5s .75s forwards;
-  -o-animation: fadeOut .5s .75s forwards;
-  animation: fadeOut .5s .75s forwards;
 }
-aside .doughnut,
-aside .doughnut .halfclip {
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
-  transform: rotate(180deg);
+aside .doughnut svg {
+  width: 100%;
+  height: auto;
 }
-aside .doughnut .halfclip {
-  width: 50%;
-  height: 100%;
-  right: 0px;
-  position: absolute;
-  overflow: hidden;
-  -webkit-transform-origin: left center;
-  -moz-transform-origin: left center;
-  -o-transform-origin: left center;
-  transform-origin: left center;
-  -webkit-animation: doughnutClip .75s 1 forwards;
-  -moz-animation: doughnutClip .75s 1 forwards;
-  -o-animation: doughnutClip .75s 1 forwards;
-  animation: doughnutClip .75s 1 forwards;
+aside .doughnut circle {
+  fill: none;
 }
-aside .doughnut .halfcircle {
-  box-sizing: border-box;
-  height: 100%;
-  right: 0px;
-  position: absolute;
-  border: solid 10px transparent;
-  border-top-color: #ff9c00;
-  border-left-color: #ff9c00;
-  border-radius: 50%;
-}
-aside .doughnut .clipped {
-  width: 200%;
-  -webkit-animation: doughnutFirst .38s linear 2 forwards;
-  -moz-animation: doughnutFirst .38s linear 2 forwards;
-  -o-animation: doughnutFirst .38s linear 2 forwards;
-  animation: doughnutFirst .38s linear 2 forwards;
-}
-aside .doughnut .clipped,
-aside .doughnut .fixed {
-  -webkit-transform: rotate(135deg);
-  -moz-transform: rotate(135deg);
-  -o-transform: rotate(135deg);
-  transform: rotate(135deg);
-}
-aside .doughnut .fixed {
-  width: 100%; 
-  opacity: 0;
-  opacity: 1;
-  -webkit-animation: doughnutSecond .75s 1 forwards;
-  -moz-animation: doughnutSecond .75s 1 forwards;
-  -o-animation: doughnutSecond .75s 1 forwards;
-  animation: doughnutSecond .75s 1 forwards;
+aside .doughnut .circle-front {
+  stroke: rgb(0, 212, 205);
+  stroke-width: 13px;
+  stroke-dasharray: 2161px;
+  stroke-dashoffset: 2161px;
+  transition: all .75s ease;
 }
 .delayed aside .background {
   opacity: 0.1;
@@ -1135,9 +1089,6 @@ span._l1, span._l2.active, span._l3.active, span._l4.active {
 .transforming aside a.levelup svg {
   fill: #AEAEAE;
 }
-.transforming aside .doughnut {
-  display: block;
-}
 .maximum aside a.levelup {
   cursor: default;
   -webkit-animation: fadeOut .5s 1s forwards;
@@ -1147,6 +1098,18 @@ span._l1, span._l2.active, span._l3.active, span._l4.active {
 }
 .maximum aside a.levelup:after {
   display: block;
+}
+.transforming  aside .doughnut .circle-front {
+  stroke: #ff9c00;
+}
+aside.levelUp_2 .doughnut .circle-front {
+  stroke-dashoffset: 1443px;
+}
+aside.levelUp_3 .doughnut .circle-front {
+  stroke-dashoffset: 721px;
+}
+aside.levelUp_4 .doughnut .circle-front {
+  stroke-dashoffset: 0px;
 }
 
 /* Medium */

@@ -148,12 +148,12 @@ SAM.levelUp = function(){
       flashTime = 150,
       waitTime = 1240,
       $body = $('body'),
-      $levelUpButton = $('aside a.levelup'),
-      $levelUpText = $('aside .actions p'),
-      $illustration = $('aside .illustration'),
-      $shadow = $('aside .shadow'),
-      $articleSkills = $('.skills li'),
-      $background = $('aside .background');
+      $aside = $('aside'),
+      $levelUpButton = $aside.find('a.levelup'),
+      $levelUpText = $aside.find('.actions p'),
+      $illustration = $aside.find('.illustration'),
+      $shadow = $aside.find('.shadow'),
+      $background = $aside.find('.background');
   // Functions
   function _levelUp(){
     level++;
@@ -162,6 +162,7 @@ SAM.levelUp = function(){
     // Play audio
     $('#_powerUp'+level).trigger('play');
     // Animate illustration
+    $aside.removeAttr('class').addClass('levelUp_'+level);
     $background.css({'opacity':level*(1/maxLevel)});
     $.each([level, level-1, level, level-1, level], function(i,img){
       setTimeout(function(){
@@ -201,6 +202,7 @@ SAM.levelUp = function(){
     for(var i = 0; i < maxLevel+1; i++) { 
       $('._l'+i).removeClass('active');
     }
+    $aside.removeAttr('class');
     $body.removeClass('maximum');
     level = 1;
     var url = 'media/'+SAM.getResponsive+'/'+level;

@@ -5,9 +5,9 @@
 
   // Title and Description
   $page_title = 'Sam Bedingfield | Creative Website Developer';
-  $page_desc = 'Full stack';
+  $page_desc = 'Creative website developer based in Norfolk, UK. Specialising in Front-end languages (HTML5, CSS3 / SASS, Javascript / jQuery), Full Stack development (PHP, MySQL / Node, Mongo), User Experience and Interface Design.';
   // Global Version / Browser Cache Buster
-  $v = 1;
+  $v = 2;
   // Portfolio Work
   $portfolio = array(
     // Work
@@ -138,7 +138,7 @@
     ),
   );
   // Development mode
-  $dev_mode = true;
+  $dev_mode = false;
   // CSS and JS files
   $css = array(
     'libs/ripple.css',
