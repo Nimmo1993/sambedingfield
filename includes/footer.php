@@ -9,13 +9,13 @@
         return substr($diff, 0, -4);
       }
       ?>
-      <h3>Hi, I’m <span>Sam</span> <i>( <?php echo getAge('13th September 1985'); ?> / M / Norwich, UK )</i></h3>
+      <h3>Hi, I’m <span>Sam</span> <i>( <?php echo getAge('13th September 1985'); ?> / M / Norfolk, UK )</i></h3>
       <ul>
-        <li>Passion for; animation, illustration, editing, UI and UX.</li>
-        <li>Appreciates; hand-written, readable, clean code.</li>
-        <li>Worked; solo, in small agencies and big Agile teams.</li>
-        <li>I'm; hard-working, friendly and reliable.</li>
-        <li>I loves me some; ale, eSports, board-games and lists.</li>
+        <li><strong>Passion for</strong> animation, illustration, editing, UI and UX.</li>
+        <li><strong>Appreciates</strong> hand-written, readable, clean code.</li>
+        <li><strong>Worked</strong> solo, in small agencies and big Agile teams.</li>
+        <li><strong>I'm</strong> hard-working, good-humoured and reliable.</li>
+        <li><strong>I loves me some</strong> ale, eSports, board-games and lists.</li>
       </ul>
     </div>
     <div class="middle">

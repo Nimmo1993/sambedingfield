@@ -64,7 +64,7 @@ main > .width {
 
 /* header */
 header {
-  background-color: #00c2bc;
+  background-color: rgba(0,175,175,1);
   color: #fff;
   height: 0px;
   position: relative;
@@ -86,10 +86,9 @@ header .background:after {
   content: '';
   position: absolute;
   background: #00c2bc;
-  background: -moz-linear-gradient(top,  rgba(0,194,188,1) 0%, rgba(0,212,205,1) 40%);
-  background: -webkit-linear-gradient(top,  rgba(0,194,188,1) 0%,rgba(0,212,205,1) 40%);
-  background: linear-gradient(to bottom,  rgba(0,194,188,1) 0%,rgba(0,212,205,1) 40%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c2bc', endColorstr='#00d4cd',GradientType=0 );
+  background: -moz-linear-gradient(top,  rgba(0,175,175,1) 0%, rgba(0,212,205,1) 40%);
+  background: -webkit-linear-gradient(top,  rgba(0,175,175,1) 0%,rgba(0,212,205,1) 40%);
+  background: linear-gradient(to bottom,  rgba(0,175,175,1) 0%,rgba(0,212,205,1) 40%);
   width: 200%;
   height: 200%;
   top: -200%;
@@ -100,8 +99,6 @@ header .background:after {
   -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
-
-
 h1 {
   font-weight: 100;
   font-size: 52px;
@@ -113,20 +110,17 @@ h1 {
 }
 h2 {
   color: #00958F;
+  text-transform: uppercase;
   font-size: 15px;
   margin-top: 10px;
   opacity: 0;
-  letter-spacing: 1px;
+  letter-spacing: 4px;
   font-weight: 300;
   font-family: "Courier New", Courier, monospace;
   -webkit-animation: fadeIn 1s 1s forwards;
   -moz-animation: fadeIn 1s 1s forwards;
   -o-animation: fadeIn 1s 1s forwards;
   animation: fadeIn 1s 1s forwards;
-}
-h2 span {
-  color: #fff;
-  text-transform: uppercase;
 }
 .intro {
   float: left;
@@ -149,8 +143,8 @@ h2 span {
   top: 0px;
   left: 0px;
   overflow: hidden;
-  background-color: #00c2bc;
-  border: 5px solid #00c2bc;
+  background-color: #00afaf;
+  border: 5px solid #00afaf;
   -webkit-transform: scale(0);
   -moz-transform: scale(0);
   -o-transform: scale(0);
@@ -572,6 +566,8 @@ aside a.levelup {
   border-radius: 3px;
   position: relative;
   z-index: 99;
+  vertical-align: middle;
+  margin-left: 32px;
 }
 aside a.levelup svg {
   vertical-align: middle;
@@ -583,6 +579,31 @@ aside a.levelup svg {
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
+}
+aside a.audioToggle {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+  width: 22px;
+  height: 22px;
+  text-align: left;
+}
+aside a.audioToggle svg {
+  vertical-align: middle;
+  width: 22px;
+  height: auto;
+  display: block;
+}
+aside a.audioToggle .off,
+aside a.audioToggle.muted .on {
+  display: none;
+}
+aside a.audioToggle.muted .off {
+  display: block;
+  margin-left: -5px;
+}
+aside a.audioToggle svg path {
+  fill: #666;
 }
 .portfolioLink {
   position: absolute;
@@ -669,17 +690,69 @@ body.noScroll .gangsterWrapper {
   width: 33%;
   position: relative;
 }
+.work img {
+  display: block;
+}
 .work img,
 .work video {
   width: 100%;
-  display: block;
   height: auto;
+}
+.work video {
+  display: none;
 }
 .work video {
   position: absolute;
   top: 0px;
   left: 0px;
   right: 0px;
+}
+.work.playing video {
+  display: block;
+  z-index: 4;
+}
+.work .video img {
+  opacity: 0.75;
+}
+.work .play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background-color: #ff9c00;
+  margin-left: -30px;
+  margin-top: -30px;
+  -webkit-box-shadow: 5px 5px 10px -5px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 5px 5px 10px -5px rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 10px -5px rgba(0, 0, 0, 0.5);
+}
+.work .play:after {
+  z-index: 2;
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 15px 0 15px 26px;
+  border-color: transparent transparent transparent #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -9px;
+  margin-top: -15px;
+}
+.work .playButton {
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  z-index: 3;
 }
 .slideshow {
   position: relative;
@@ -899,6 +972,9 @@ footer .right li {
   margin-bottom: 8px;
   color: #ADADAD;
 }
+footer .right li strong {
+  color: #ffffff;
+}
 
 /* cv download */
 a.cv {
@@ -1089,7 +1165,8 @@ span._l1, span._l2.active, span._l3.active, span._l4.active {
 .transforming aside a.levelup svg {
   fill: #AEAEAE;
 }
-.maximum aside a.levelup {
+.maximum aside a.levelup,
+.maximum aside a.audioToggle {
   cursor: default;
   -webkit-animation: fadeOut .5s 1s forwards;
   -moz-animation: fadeOut .5s 1s forwards;
@@ -1171,6 +1248,9 @@ aside.levelUp_4 .doughnut .circle-front {
     right: auto;
     top: -68px;
     max-width: 320px;
+  }
+  .work video {
+    display: none;
   }
 }
 
@@ -1267,7 +1347,7 @@ aside.levelUp_4 .doughnut .circle-front {
   .circle {
     height: 38px;
     width: 38px;
-    border: 4px solid #00c2bc;
+    border: 4px solid #00afaf;
   }
   .me {
     left: -2px;
@@ -1441,56 +1521,6 @@ aside.levelUp_4 .doughnut .circle-front {
   .work {
     width: 100%;
   }
-  .work video {
-    display: none;
-  }
-  .work.playing video {
-    display: block;
-    z-index: 4;
-  }
-  .work .video img {
-    opacity: 0.75;
-  }
-  .work .play {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 60px;
-    height: 60px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    background-color: #ff9c00;
-    margin-left: -30px;
-    margin-top: -30px;
-    -webkit-box-shadow: 5px 5px 10px -5px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 5px 5px 10px -5px rgba(0, 0, 0, 0.5);
-    box-shadow: 5px 5px 10px -5px rgba(0, 0, 0, 0.5);
-  }
-  .work .play:after {
-    z-index: 2;
-    content: '';
-    display: block;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 15px 0 15px 26px;
-    border-color: transparent transparent transparent #fff;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -9px;
-    margin-top: -15px;
-  }
-  .work .playButton {
-    display: block;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    bottom: 0px;
-    right: 0px;
-    z-index: 3;
-  }
   .popupPortfolio {
     padding-left: 5px;
     padding-right: 5px;
@@ -1582,5 +1612,14 @@ aside.levelUp_4 .doughnut .circle-front {
     position: absolute;
     left: 3px;
     top: 0px;
+  }
+  aside a.levelup {
+    margin-left: 12px;
+  }
+  aside a.audioToggle {
+    margin-left: 5px;
+  }
+  aside a.audioToggle svg {
+    width: 19px;
   }
 }

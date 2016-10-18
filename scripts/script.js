@@ -77,7 +77,10 @@ SAM.setResponsive = function(){
 }
 
 // Preload all image assets
-SAM.preload = function($container = $('body')){
+SAM.preload = function($container){
+  if(typeof $container === undefined){
+    $container = $('body');
+  }
   $container.addClass('loading');
   // Get correct media folder
   function mediaFolder($el){
@@ -141,6 +144,7 @@ SAM.preload = function($container = $('body')){
 }
 
 // Level Up Animation
+SAM.audio = true;
 SAM.levelUp = function(){
   // Vars
   var level = 1,
@@ -150,17 +154,21 @@ SAM.levelUp = function(){
       $body = $('body'),
       $aside = $('aside'),
       $levelUpButton = $aside.find('a.levelup'),
+      $audioToggle = $aside.find('a.audioToggle'),
       $levelUpText = $aside.find('.actions p'),
       $illustration = $aside.find('.illustration'),
       $shadow = $aside.find('.shadow'),
-      $background = $aside.find('.background');
+      $background = $aside.find('.background'),
+      $audio = $('.powerUp audio');
   // Functions
   function _levelUp(){
     level++;
     // Activate level class
     $('._l'+level).addClass('active');
     // Play audio
-    $('#_powerUp'+level).trigger('play');
+    if(SAM.audio){
+      $audio.filter('#_powerUp'+level).trigger('play');
+    }
     // Animate illustration
     $aside.removeAttr('class').addClass('levelUp_'+level);
     $background.css({'opacity':level*(1/maxLevel)});
@@ -191,7 +199,7 @@ SAM.levelUp = function(){
     }
   }
   // Events
-  $levelUpButton.on('click',function(e){
+  $levelUpButton.on('click mousedown',function(e){
     e.preventDefault();
     if(level < maxLevel && !$body.hasClass('transforming')){
       _levelUp();
@@ -211,6 +219,17 @@ SAM.levelUp = function(){
     $background.css({'opacity':'0.1'});
     $levelUpText.html("Click \"Level up\" to view my progression.");
     SAM.log('Level Up: Reset');
+  });
+  $audioToggle.on('click',function(e){
+    e.preventDefault();
+    if(SAM.audio){
+      SAM.audio = false;
+      $audioToggle.addClass('muted');
+      $audio.filter('#_powerUp'+level).trigger('pause');
+    } else {
+      $audioToggle.removeClass('muted');
+      SAM.audio = true;
+    }
   });
 }
 
@@ -289,8 +308,8 @@ SAM.popupPortfolio = function(){
       });
       SAM.log('Portfolio: Re-opened');
     }
-    // Autoplay videos
-    if(SAM.getResponsive !== 'small'){
+    // Autoplay videos on desktop
+    if(SAM.getResponsive == 'large'){
       $videos.each(function(i){
         playVideo($(this));
       });
@@ -316,13 +335,13 @@ SAM.popupPortfolio = function(){
     });
     SAM.log('Portfolio: Opened');
   });
-  // Stop video playback
+  // Stop video playback for anything but desktop
   $window.on('responsive', function(){
-    if(SAM.getResponsive == 'small'){
+    if(SAM.getResponsive !== 'large'){
       $videos.each(function(i){
         stopVideo($(this));
       });
-      SAM.log('All Videos: Paused for mobile');
+      SAM.log('All Videos: Paused');
     }
   });
 }

@@ -6,7 +6,7 @@
         <span class="me"><span class="head"></span><span class="body"></span><span class="wave"></span></span>
       </div>
       <h1>Sam Bedingfield</h1>
-      <h2>&lt;webmaster&gt; <span>circa 2005</span> &lt;/webmaster&gt;</h2>
+      <h2><span>Creative</span> Website Developer</h2>
     </section>
     <section class="tools _l2">
       <ul>

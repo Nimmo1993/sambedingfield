@@ -5,12 +5,17 @@
   <meta name="description" content="<?php echo $page_desc; ?>">
   <meta name="author" content="Sam Bedingfield">
   <title><?php echo $page_title; ?></title>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@RatsClan">
+  <meta name="twitter:title" content="<?php echo $page_title; ?>">
+  <meta name="twitter:description" content="<?php echo $page_desc; ?>">
+  <meta name="twitter:image" content="/media/social-share.jpg?v=<?php echo $v; ?>">
   <meta property="og:url" content="http://www.sambedingfield.com" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Online Portfolio" />
-  <meta property="og:site_name" content="Sam Bedingfield" />
-  <meta property="og:description" content="Website Development" />
-  <meta property="og:image" content="media/social-share.jpg?v=<?php echo $v; ?>" />
+  <meta property="og:title" content="<?php echo $page_title; ?>" />
+  <meta property="og:site_name" content="@RatsClan" />
+  <meta property="og:description" content="<?php echo $page_desc; ?>" />
+  <meta property="og:image" content="/media/social-share.jpg?v=<?php echo $v; ?>" />
   <?php
   if($dev_mode){
     // CSS
